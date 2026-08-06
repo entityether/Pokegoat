@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Monster Journey — Kanto Alpha v0.18.1</title>
+<title>Monster Journey — Kanto Alpha v0.17.26</title>
 <style>
 :root{--bg:#090a0d;--p:#11141b;--p2:#181c25;--line:#292e3a;--tx:#f7f7f8;--mut:#939aaa;--yel:#ffd23f;--g:#22c983;--r:#f04464}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px Inter,system-ui,Arial}button,input{font:inherit}.top{padding:18px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.brand{font-size:22px;font-weight:950}.brand b{color:var(--yel)}.wrap{max-width:1180px;margin:auto;padding:28px}.card{background:var(--p);border:1px solid var(--line);border-radius:18px;padding:24px}.hidden{display:none!important}
@@ -408,7 +408,7 @@ button{padding:7px 10px;font-size:11px}
 .medals-window .badge small{font-size:8px;color:#aeb5c0;font-weight:800}.medals-window .badge.got small{color:#ffe18a}
 .badge-art{
   display:block;width:38px;height:38px;flex:0 0 38px;
-  background-image:none;background-repeat:no-repeat;
+  background-image:url('/kanto-badges.png');background-repeat:no-repeat;
   background-size:800% 100%;background-position-y:center;
   filter:grayscale(1) brightness(.72);transition:filter .2s ease,transform .2s ease
 }
@@ -820,8 +820,93 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
   }
 }
 
+
+/* v0.18.2 — HUD compacto con marcas de agua */
+.hud-unified{
+  display:grid!important;
+  grid-template-columns:repeat(3,minmax(0,1fr))!important;
+  grid-auto-rows:56px!important;
+  gap:6px!important;
+  margin:8px 0!important;
+  padding:0!important;
+  align-items:stretch!important;
+}
+.hud-unified .hud-card{
+  box-sizing:border-box!important;
+  width:100%!important;
+  height:56px!important;
+  min-height:56px!important;
+  max-height:56px!important;
+  margin:0!important;
+  padding:6px 9px!important;
+  border-radius:10px!important;
+  display:flex!important;
+  flex-direction:column!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:2px!important;
+  overflow:hidden!important;
+  position:relative!important;
+  isolation:isolate;
+}
+.hud-unified .hud-card::after{
+  content:attr(data-watermark);
+  position:absolute;
+  right:7px;
+  top:50%;
+  transform:translateY(-50%) rotate(-7deg);
+  font-size:36px;
+  line-height:1;
+  opacity:.10;
+  filter:grayscale(1) brightness(1.6);
+  pointer-events:none;
+  z-index:-1;
+  font-weight:900;
+}
+.hud-unified .hud-card[data-watermark="₽"]::after{
+  font-size:45px;
+  right:9px;
+  opacity:.11;
+  transform:translateY(-50%);
+}
+.hud-unified .hud-icon{display:none!important}
+.hud-unified .hud-value{
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  font-size:16px!important;
+  line-height:1.05!important;
+  font-weight:950!important;
+  text-align:center!important;
+  white-space:nowrap!important;
+  position:relative;
+  z-index:1;
+}
+.hud-unified .hud-label{
+  display:block!important;
+  width:100%!important;
+  margin:0!important;
+  padding:0!important;
+  font-size:9px!important;
+  line-height:1!important;
+  font-weight:850!important;
+  text-align:center!important;
+  position:relative;
+  z-index:1;
+}
+.hud-unified button.hud-card:hover{transform:translateY(-1px)!important}
+@media(max-width:900px){
+  .hud-unified{grid-auto-rows:53px!important;gap:5px!important}
+  .hud-unified .hud-card{
+    height:53px!important;min-height:53px!important;max-height:53px!important;padding:5px 6px!important
+  }
+  .hud-unified .hud-card::after{font-size:31px;right:5px}
+  .hud-unified .hud-card[data-watermark="₽"]::after{font-size:39px}
+}
+
 </style></head><body>
-<header class="top"><div class="brand">MONSTER <b>JOURNEY</b></div><div class="sub">Kanto Alpha v0.18.1 • Pokédex unificada en PC y móvil</div></header><main class="wrap">
+<header class="top"><div class="brand">MONSTER <b>JOURNEY</b></div><div class="sub">Kanto Alpha v0.18.2 • HUD compacto con marcas de agua</div></header><main class="wrap">
 <section id="start" class="hero"><div class="intro"><div class="tag">KANTO</div><h1>Tu viaje empieza en Pueblo Paleta.</h1><p>Elegí un compañero y construí una carrera rápida por Kanto. Capturas, evoluciones, rival, gimnasios y Liga cambian según tus decisiones.</p><button class="primary" onclick="show('setup')">Comenzar aventura</button></div></section>
 <section id="setup" class="card hidden"><h2>Nuevo entrenador</h2><div class="setup"><div><div class="field"><label>NOMBRE</label><input id="name" value="Entrenador"></div><div class="field"><label>RIVAL</label><input id="rival" value="Rival"></div><p>Región: <b>Kanto</b><br>Objetivo principal: conseguir medallas y llegar a la Liga.</p></div><div><h3>Elegí tu inicial</h3><div class="starters">
 <div class="starter on" data-id="Bulbasaur" data-icon="🌱"><div class="poke"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAABtElEQVR4nO2YPW6DQBCFH1FO44IjpEWRQrpICZF8AlykSuUGV6lchBNEMinShUgW16DwdSZFWLIsu+wCDgr2fJKtZfl7O/NmEAAMwzAMM2O8ie9HhvnBOi6GnvhfmDID9PT2rN2xXb4M1nI5QpANk12OCltIoY66yS4AcChKAMAi8Ou5ykYyTtrOMgMiyp46Z4u6HHExB6A1D7gX9uwz0GcBBIDiPEOcZ/U2LN3mUJTa6AM/kV8Efp0JmSqb1uv3sRABEOIbpGHUunmXPXRYCtuoc/YWcn2QdaZRzco2jBA8Xg/V1IvZZ8C1Bkjn/fLjs7Ht393WY7UuAHOb1RW5axu1WahlHSFaFiuPBeqCdQsSFLs9it3eIkXPyVuIxN9KYyEXROTjPDNm4Wp5X49FNqtjT/9JfNQMyBHWFX3XeeL415uHDQB4nrd20Oe2AFMHUtL9W/FEm9XX+9pFvHx+T20ATsBCtjbqAUAaRiQKTURd1zq7SMMI6jWkyPNXCRcaDzXXIpXbqGlfTx0NZp+BMVCfHxElcZ5RnGdERAkRJXB4YbEx6Yetv7j/WVuIYRiGYZixfANdVawl+fwS6wAAAABJRU5ErkJggg==" style="width:48px;height:48px"></div><b>Bulbasaur</b><small>Planta / Veneno</small></div>
@@ -830,43 +915,43 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
 <section id="game" class="game hidden"><div class="card">
 <div class="head"><div class="rank prestige-bronze" id="rank" title="Prestigio" data-tooltip="Prestigio" role="button" tabindex="0" aria-label="Prestigio: 0" onclick="showPrestigeTip()" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();showPrestigeTip()}"><span id="rankValue" class="rank-value">0</span><span class="rank-label">Prestigio</span></div><div><h2 id="tn">Entrenador</h2><div class="trainer-meta"><div class="sub">Kanto • <span id="title">Novato</span></div><div id="statusInline" class="status-inline"></div><div id="ballInventory" class="ball-inventory"></div><div id="itemInventory" class="item-inventory"></div></div></div></div>
 <div class="hud-stats hud-unified">
-  <button class="hud-card hud-wins" type="button" aria-label="Victorias">
+  <button class="hud-card hud-wins" type="button" aria-label="Victorias" data-watermark="🏆">
     <span class="hud-icon">🏆</span>
     <b id="wins" class="hud-value">0</b>
     <span class="hud-label">Victorias</span>
   </button>
 
-  <button class="hud-card hud-objectives" type="button" onclick="openObjectives()" aria-label="Abrir objetivos">
+  <button class="hud-card hud-objectives" type="button" onclick="openObjectives()" aria-label="Abrir objetivos" data-watermark="⭐">
     <span class="hud-icon">⭐</span>
     <b id="objectiveCount" class="hud-value">0</b>
     <span class="hud-label">Objetivos</span>
   </button>
 
-  <button class="hud-card hud-medals" type="button" onclick="openMedals()" aria-label="Abrir medallero">
+  <button class="hud-card hud-medals" type="button" onclick="openMedals()" aria-label="Abrir medallero" data-watermark="🏅">
     <span class="hud-icon">🏅</span>
     <b id="badgeCount" class="hud-value">0/8</b>
     <span class="hud-label">Medallas</span>
   </button>
 
-  <button class="hud-card hud-dex dex-trigger" type="button" onclick="openDexFromMetric()" aria-label="Abrir Pokédex">
+  <button class="hud-card hud-dex dex-trigger" type="button" onclick="openDexFromMetric()" aria-label="Abrir Pokédex" data-watermark="📕">
     <span class="hud-icon">📕</span>
     <b id="dex" class="hud-value">1</b>
     <span class="hud-label">Pokédex</span>
   </button>
 
-  <div id="moneyMetric" class="hud-card hud-money money-low" aria-label="Dinero">
+  <div id="moneyMetric" class="hud-card hud-money money-low" aria-label="Dinero" data-watermark="₽">
     <span class="hud-icon">₽</span>
     <b id="money" class="hud-value">₽ 3.000</b>
     <span class="hud-label">Dinero</span>
   </div>
 
-  <button class="hud-card hud-pc" type="button" onclick="openReserve()" aria-label="Abrir PC">
+  <button class="hud-card hud-pc" type="button" onclick="openReserve()" aria-label="Abrir PC" data-watermark="💻">
     <span class="hud-icon">💻</span>
     <b id="reserveCount" class="hud-value">0</b>
     <span class="hud-label">PC</span>
   </button>
 
-  <button class="hud-card hud-bag hud-mobile-only" type="button" onclick="setMobileTab('bag')" aria-label="Abrir mochila">
+  <button class="hud-card hud-bag hud-mobile-only" type="button" onclick="setMobileTab('bag')" aria-label="Abrir mochila" data-watermark="🎒">
     <span class="hud-icon">🎒</span>
     <b class="hud-value">—</b>
     <span class="hud-label">Mochila</span>
