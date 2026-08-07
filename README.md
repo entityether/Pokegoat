@@ -1,3 +1,3 @@
-# Monster Journey Kanto v0.18.2
+# Monster Journey Kanto v0.18.9
 
-Reemplazá el index.html de tu repositorio por este archivo.
+Prueba de sprites nuevos solo en la elección inicial.
