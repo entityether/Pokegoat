@@ -1,3 +1,3 @@
-# Monster Journey Kanto v0.19.2
+# Monster Journey Kanto v0.19.3
 
-Prueba de reorganización de la cabecera: Poké Balls, piedras y otros recursos pasan al sector derecho del entrenador.
+Corrige la cabecera del entrenador: inventario de Poké Balls y piedras se ubica físicamente a la derecha, tanto en PC como en móvil.
