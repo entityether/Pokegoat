@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Monster Journey — Kanto Alpha v0.17.26</title>
+<title>Pokegoat — Kanto Alpha v0.17.26</title>
 <style>
 :root{--bg:#090a0d;--p:#11141b;--p2:#181c25;--line:#292e3a;--tx:#f7f7f8;--mut:#939aaa;--yel:#ffd23f;--g:#22c983;--r:#f04464}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px Inter,system-ui,Arial}button,input{font:inherit}.top{padding:18px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.brand{font-size:22px;font-weight:950}.brand b{color:var(--yel)}.wrap{max-width:1180px;margin:auto;padding:28px}.card{background:var(--p);border:1px solid var(--line);border-radius:18px;padding:24px}.hidden{display:none!important}
@@ -1168,8 +1168,204 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
   }
 }
 
+
+.dex-open #mobilePanel{position:relative}
+.dex-close-x{
+ position:sticky;top:10px;float:right;z-index:30;
+ width:36px;height:36px;margin:0 0 8px 10px;padding:0;
+ border:1px solid #3b4655;border-radius:50%;
+ background:#202733;color:#fff;font-size:24px;font-weight:800;
+ line-height:32px;text-align:center;cursor:pointer;
+ box-shadow:0 5px 18px rgba(0,0,0,.28)
+}
+.dex-close-x:hover{background:#303947;transform:scale(1.04)}
+.dex-close-x:active{transform:scale(.96)}
+
+/* v0.19.6 — catálogo de premios del Casino */
+.casino-prize-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:9px;
+  margin-top:10px;
+}
+.casino-prize{
+  background:linear-gradient(145deg,#2a1742,#4a2671)!important;
+  border-color:#7a4db2!important;
+  color:#f8f2ff!important;
+}
+.casino-prize:hover{
+  border-color:#b981f1!important;
+  filter:brightness(1.08);
+}
+.casino-prize.off{
+  opacity:.52!important;
+  cursor:default!important;
+}
+.casino-prize-main{
+  display:flex;
+  align-items:center;
+  gap:9px;
+}
+.casino-prize-main img{
+  width:42px;
+  height:42px;
+  object-fit:contain;
+  image-rendering:pixelated;
+  flex:0 0 42px;
+}
+.casino-prize-main>div{
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.casino-prize-main b{
+  font-size:13px;
+}
+.casino-prize-main span{
+  font-size:10px;
+  color:#e0c6ff;
+}
+.casino-prize .det-note{
+  background:#24143a!important;
+  color:#d7bdf2!important;
+}
+.casino-success{
+  border-color:#6b4a99!important;
+  background:linear-gradient(145deg,#28183d,#3c2358)!important;
+}
+@media(max-width:700px){
+  .casino-prize-grid{grid-template-columns:1fr}
+}
+
+
+/* v0.19.7 — versión clickeable + historial de parches */
+.top .sub{
+  display:flex!important;
+  align-items:center;
+  justify-content:flex-end;
+}
+.patch-btn{
+  border:1px solid #33404f;
+  background:linear-gradient(145deg,#111923,#171f2a);
+  color:#b9c8d8;
+  border-radius:999px;
+  padding:6px 11px;
+  font-size:10px;
+  font-weight:850;
+  letter-spacing:.02em;
+  cursor:pointer;
+  transition:.16s ease;
+}
+.patch-btn:hover{
+  color:#fff;
+  border-color:#52657a;
+  transform:translateY(-1px);
+  box-shadow:0 5px 16px rgba(0,0,0,.22);
+}
+.patch-open{overflow:hidden}
+#patchModal{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  padding:22px;
+  background:rgba(2,5,9,.76);
+  backdrop-filter:blur(8px);
+}
+.patch-modal-card{
+  position:relative;
+  width:min(720px,94vw);
+  max-height:min(78vh,760px);
+  overflow:auto;
+  border:1px solid #394658;
+  border-radius:18px;
+  background:linear-gradient(180deg,#111821,#0d131b);
+  box-shadow:0 30px 90px rgba(0,0,0,.55);
+  padding:24px 24px 26px;
+}
+.patch-close{
+  position:sticky;
+  top:0;
+  float:right;
+  z-index:3;
+  width:36px;
+  height:36px;
+  border-radius:50%;
+  border:1px solid #3a4655;
+  background:#1c2430;
+  color:#fff;
+  font-size:23px;
+  font-weight:900;
+  line-height:30px;
+  cursor:pointer;
+}
+.patch-close:hover{background:#2b3644}
+.patch-kicker{
+  color:#ffd23f;
+  font-size:10px;
+  font-weight:950;
+  letter-spacing:.08em;
+  margin-bottom:6px;
+}
+.patch-current{
+  margin:0 0 18px;
+  font-size:12px;
+}
+.patch-list{
+  display:grid;
+  gap:10px;
+  clear:both;
+}
+.patch-entry{
+  border:1px solid #293443;
+  border-radius:13px;
+  background:#121923;
+  padding:13px 14px;
+}
+.patch-entry.current{
+  border-color:#775b18;
+  background:linear-gradient(145deg,#221c0f,#171710);
+  box-shadow:0 0 18px rgba(255,210,63,.07);
+}
+.patch-entry-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  align-items:center;
+  margin-bottom:5px;
+}
+.patch-entry-head b{
+  color:#ffd23f;
+  font-size:12px;
+}
+.patch-entry-head span{
+  color:#738193;
+  font-size:10px;
+}
+.patch-entry h3{
+  margin:0 0 4px;
+  font-size:13px;
+}
+.patch-entry p{
+  margin:0;
+  font-size:11px;
+  line-height:1.45;
+}
+@media(max-width:700px){
+  #patchModal{padding:10px}
+  .patch-modal-card{
+    width:100%;
+    max-height:82dvh;
+    border-radius:15px;
+    padding:18px 16px 22px;
+  }
+  .patch-btn{padding:5px 8px;font-size:9px}
+}
+
 </style></head><body>
-<header class="top"><div class="brand">MONSTER <b>JOURNEY</b></div><div class="sub">Kanto Alpha v0.19.3 • Recursos realmente a la derecha</div></header><main class="wrap">
+<header class="top"><div class="brand">POKE<b>GOAT</b></div><div class="sub"><button id="patchBtn" class="patch-btn" type="button" onclick="openPatchNotes()">v0.19.9</button></div></header><main class="wrap">
 <section id="start" class="hero"><div class="intro"><div class="tag">KANTO</div><h1>Tu viaje empieza en Pueblo Paleta.</h1><p>Elegí un compañero y construí una carrera rápida por Kanto. Capturas, evoluciones, rival, gimnasios y Liga cambian según tus decisiones.</p><button class="primary" onclick="show('setup')">Comenzar aventura</button></div></section>
 <section id="setup" class="card hidden"><h2>Nuevo entrenador</h2><div class="setup"><div><div class="field"><label>NOMBRE</label><input id="name" value="Entrenador"></div><div class="field"><label>RIVAL</label><input id="rival" value="Rival"></div><p>Región: <b>Kanto</b><br>Objetivo principal: conseguir medallas y llegar a la Liga.</p></div><div><h3>Elegí tu inicial</h3><div class="starters">
 <div class="starter on" data-id="Bulbasaur" data-icon="🌱"><div class="poke"><img src="data:image/png;base64,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" style="width:48px;height:48px"></div><b>Bulbasaur</b><small>Planta / Veneno</small></div>
@@ -1262,9 +1458,91 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
   <button data-tab="bag" onclick="setMobileTab('bag')"><span>🎒</span>Mochila</button>
 </nav>
 
+
+<div id="patchModal" class="modal hidden" aria-hidden="true">
+  <div class="patch-modal-card" role="dialog" aria-modal="true" aria-labelledby="patchTitle">
+    <button class="patch-close" type="button" aria-label="Cerrar novedades" onclick="closePatchNotes()">×</button>
+    <div class="patch-kicker">HISTORIAL DE VERSIONES</div>
+    <h2 id="patchTitle">Pokegoat — Kanto Alpha</h2>
+    <p class="patch-current">Versión actual <b>v0.19.9</b> · 8 de agosto de 2026</p>
+
+    <div class="patch-list">
+      <article class="patch-entry current">
+        <div class="patch-entry-head"><b>v0.19.9</b><span>8 ago 2026</span></div>
+        <h3>Notas de parche dentro del juego</h3>
+        <p>El número de versión ahora abre este historial para seguir la evolución del proyecto sin ocupar espacio en la cabecera.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.19.6</b><span>8 ago 2026</span></div>
+        <h3>Casino de Azulona renovado</h3>
+        <p>Nuevo catálogo de premios con seis Pokémon distintos por expedición y precios propios.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.19.5</b><span>8 ago 2026</span></div>
+        <h3>Pokédex más cómoda</h3>
+        <p>La Pokédex incorpora cierre con X en la parte superior para evitar tener que bajar hasta el final.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.19.4</b><span>8 ago 2026</span></div>
+        <h3>Azar más selectivo</h3>
+        <p>Varias decisiones obvias de avanzar, entrenar o conservar energía pasaron a tener resultados directos.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.19.3</b><span>7 ago 2026</span></div>
+        <h3>Recursos del entrenador reorganizados</h3>
+        <p>Poké Balls y piedras evolutivas fueron trasladadas a la derecha del encabezado del entrenador.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.19.1</b><span>7 ago 2026</span></div>
+        <h3>Minijuegos y eventos especiales</h3>
+        <p>La pesca pasó a modo enfocado y los entrenadores importantes comenzaron a usar degradados y destellos propios.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.18.9</b><span>7 ago 2026</span></div>
+        <h3>Prueba de nuevos sprites iniciales</h3>
+        <p>Bulbasaur, Charmander y Squirtle recibieron nuevos sprites exclusivamente en la pantalla de elección inicial.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.18.6</b><span>6 ago 2026</span></div>
+        <h3>Pesca interactiva</h3>
+        <p>Las decisiones de pesca incorporaron un minijuego de tensión del sedal.</p>
+      </article>
+
+      <article class="patch-entry">
+        <div class="patch-entry-head"><b>v0.18.3</b><span>6 ago 2026</span></div>
+        <h3>Prestigio rebalanceado</h3>
+        <p>Se redujeron ganancias excesivas y los gimnasios pasaron a otorgar prestigio según su jerarquía.</p>
+      </article>
+    </div>
+  </div>
+</div>
+
 </main><script>
 let starter={name:'Bulbasaur',icon:'🌱'},locked=false;
 let S={i:0,journey:1,explorationMode:false,secondRoute:null,journeyWins:0,victoryRoad:false,prestige:0,wins:0,caps:1,dex:1,seen:new Set(),capturedSpecies:new Set(),money:3000,badges:0,earnedBadges:[],team:[],reserve:[],effects:[],history:[],moments:[],champion:false,mewtwoDone:false,mewtwoCaptured:false,mewtwoAttemptJourney:0,mewEncountered:false,legendarySeen:[],legendaryCaught:[],leagueTrials:[],pendingEvos:[],continueChamp:false,reserveSwapUsed:false,reserveSwapCredits:3,moonStoneFirstFound:false,moonStoneBoughtJourney:0,dojoChoices:[],laprasGift:false,aerodactylGift:false,fossilRestored:[],secondTrades:[],rivalWins:0,rivalLosses:0,rivalEncounters:0,leaderRematches:[],rocketWins:0,rocketLosses:0,trainerName:'Entrenador',rivalName:'Rival',balls:{poke:5,great:0,ultra:0,master:0},stones:{Fuego:0,Agua:0,Trueno:0,Hoja:0,Lunar:0}};
+
+function openPatchNotes(){
+  const modal=document.getElementById('patchModal');
+  if(!modal)return;
+  modal.classList.remove('hidden');
+  modal.setAttribute('aria-hidden','false');
+  document.body.classList.add('patch-open');
+}
+function closePatchNotes(){
+  const modal=document.getElementById('patchModal');
+  if(!modal)return;
+  modal.classList.add('hidden');
+  modal.setAttribute('aria-hidden','true');
+  document.body.classList.remove('patch-open');
+}
+
 function showPrestigeTip(){openPrestigeGuide()}
 function openPrestigeGuide(){
  const modal=document.getElementById('prestigeModal');
@@ -1564,19 +1842,19 @@ function addCaptured(mon,where){
 let stages=[
 ['Ruta 1','Primer encuentro salvaje','Un Pokémon aparece entre la hierba.',['Intentar capturarlo','Podés sumar un compañero','Podés gastar Poké Balls',.72,'cap'],['Entrenar con tu inicial','Crecimiento estable','Puede aparecer fatiga',.84,'train']],
 ['Ciudad Verde','Centro Pokémon y tienda','Tenés un rato antes de seguir viaje.',['Comprar Poké Balls','La tienda inicial vende Poké Balls comunes','',1,'det','shop'],['Descansar al equipo','Quitás fatiga y recuperás al equipo','',1,'det','rest']],
-['Ruta 2','Camino al bosque','La ruta se llena de Pokémon pequeños.',['Buscar capturas','Alta chance de ampliar Pokédex','Podés gastar recursos',.76,'cap'],['Avanzar rápido','Llegás fresco al bosque','Perdés encuentros',.90,'train']],
+['Ruta 2','Camino al bosque','La ruta se llena de Pokémon pequeños.',['Buscar capturas','Alta chance de ampliar Pokédex','Podés gastar recursos',.76,'cap'],['Avanzar rápido','Llegás fresco al bosque y evitás encuentros','',1,'det','safeAdvance']],
 ['Bosque Verde','Algo se mueve entre los árboles','Un Pokémon poco común aparece lejos del sendero.',['Seguirlo','Posible captura especial','Puede escapar',.58,'cap'],['Explorar otra zona','Más encuentros posibles','Podés salir fatigado',.66,'cap']],
 ['Ciudad Plateada','Gimnasio de Brock','Brock y sus Pokémon de roca esperan tu desafío.',['Atacar con todo','Medalla Roca y gran crecimiento','Alta exigencia',.58,'gym'],['Buscar ventaja táctica','Más chances de ganar','Menor prestigio',.74,'gym']],
 ['Ruta 3','Entrenadores de la ruta','Varios entrenadores buscan combate.',['Aceptar varios duelos','Victorias y prestigio','Fatiga probable',.64,'fight'],['Buscar Pokémon entre las rocas','Posible captura','Menos prestigio',.70,'cap']],
 ['Monte Moon','Una ruta peligrosa','El camino atraviesa las cavernas del Monte Moon.',['Explorar las profundidades','Captura y posible hallazgo lunar','Riesgo de fatiga',.62,'cap'],['Explorar el cráter brillante','Piedra Lunar garantizada en el primer viaje','+12 Fatiga si el evento falla',.52,'rare']],
-['Ruta 4','Salida del Monte Moon','La luz del día revela una zona tranquila.',['Pescar cerca del agua','Posible captura de Agua','Podés no encontrar nada',.69,'cap'],['Entrenar al equipo','Preparación segura','No capturás',.86,'train']],
+['Ruta 4','Salida del Monte Moon','La luz del día revela una zona tranquila.',['Pescar cerca del agua','Posible captura de Agua','Podés no encontrar nada',.69,'cap'],['Entrenar al equipo','Mejorás la preparación sin arriesgar una captura','',1,'det','steadyTrain']],
 ['Ciudad Celeste','Gimnasio de Misty','Misty acepta tu desafío por la Medalla Cascada.',['Presionar desde el inicio','Gran recompensa','Combate arriesgado',.57,'gym'],['Estudiar su equipo','Más seguridad','Menor crecimiento',.73,'gym']],
 ['Ruta 24','Tu rival reaparece','Tu rival quiere comprobar cuánto creciste.',['Combatir sin miedo','Gran prestigio','Podés perder la racha',.61,'rival'],['Jugar estratégicamente','Mayor seguridad','Menor recompensa',.76,'rival']],
 ['Ruta 25','Un entrenador te ofrece un intercambio','Quiere uno de tus Pokémon y ofrece otro a cambio.',['Aceptar intercambio','Intercambiás uno de tus Pokémon por otro','',1,'det','swap'],['Rechazar y seguir','Conservás el equipo actual','',1,'det','keep']],
 ['Ciudad Carmín','Puerto y mercado','La ciudad está llena de movimiento.',['Comprar Poké Balls','Gastás ₽900 y mejorás próximas capturas','',1,'det','shop'],['Recorrer los muelles','Buscás un encuentro especial en el puerto','',1,'cap']],
 ['Ciudad Carmín','Gimnasio de Lt. Surge','La Medalla Trueno está en juego.',['Ir al choque','Gran recompensa','Riesgo alto',.56,'gym'],['Preparar una estrategia','Más chance de victoria','Menos prestigio',.72,'gym']],
 ['Ruta 11','Un Pokémon herido','Encontrás un Pokémon cansado cerca del camino.',['Ayudarlo','Puede decidir acompañarte','No siempre se queda',.67,'cap'],['Darle comida y seguir el viaje','El Pokémon decide acompañarte','Se une al equipo',1,'cap']],
-['Túnel Roca','Cruce oscuro','El túnel está lleno de ecos y movimiento.',['Explorar rutas laterales','Más capturas posibles','Fatiga',.63,'cap'],['Seguir el camino principal','Menos riesgo','Menos recompensas',.88,'train']],
+['Túnel Roca','Cruce oscuro','El túnel está lleno de ecos y movimiento.',['Explorar rutas laterales','Más capturas posibles','Fatiga',.63,'cap'],['Seguir el camino principal','Avanzás sin desvíos y conservás energía','',1,'det','safeAdvance']],
 ['Pueblo Lavanda','Una noche extraña','Algo te observa desde la Torre Pokémon.',['Investigar','Encuentro raro','Podés salir fatigado',.50,'rare'],['Visitar el cementerio Pokémon','Evento emocional','No siempre hay recompensa',.82,'event']],
 ['Ruta 8','Camino a Azulona','Los entrenadores comentan sobre Pokémon poco comunes.',['Buscar uno de esos rumores','Posible captura rara','Probabilidad baja',.48,'cap'],['Combatir entrenadores','Prestigio seguro','Fatiga posible',.72,'fight']],
 ['Ciudad Azulona','Centro Comercial','El cuarto piso vende piedras evolutivas y otros objetos especiales.',['Visitar el 4F: piedras evolutivas','Piedras comunes · ₽2.100 / Lunar · ₽2.500','',1,'det','stoneShop'],['Hablar con criadores','Buscás una oportunidad de conseguir un Pokémon','',1,'cap']],
@@ -1585,18 +1863,18 @@ let stages=[
 ['Ciudad Fucsia','Zona Safari','Tenés acceso limitado a una zona llena de Pokémon.',['Recorrer los pastizales','Se oyen criaturas diferentes en varias direcciones','Menos control sobre cuál encontrarás',.72,'multiCap'],['Pescar en aguas profundas','Algo poco común se mueve bajo el agua','La captura podría ser difícil',.34,'cap']],
 ['Ciudad Fucsia','Centro Pokémon y tienda','Antes del gimnasio podés reponer objetos o descansar.',['Comprar Poké Balls','Ya se venden modelos avanzados para capturas difíciles','',1,'det','shop'],['Descansar al equipo','Quitás fatiga antes del gimnasio','',1,'det','rest']],
 ['Ciudad Fucsia','Gimnasio de Koga','Koga convierte el combate en una prueba de resistencia.',['Atacar agresivamente','Medalla Alma','Posible fatiga',.61,'gym'],['Ser paciente','Mayor seguridad','Menor recompensa',.76,'gym']],
-['Ruta 12','Pesca en silencio','Un entrenador te presta una caña mejor.',['Quedarte pescando','Posible captura acuática','Podés perder tiempo',.74,'cap'],['Seguir viaje','Conservás ritmo','Sin captura',.95,'train']],
+['Ruta 12','Pesca en silencio','Un entrenador te presta una caña mejor.',['Quedarte pescando','Posible captura acuática','Podés perder tiempo',.74,'cap'],['Seguir viaje','Conservás el ritmo y no gastás recursos','',1,'det','safeAdvance']],
 ['Ciudad Azafrán','Silph S.A.','Algo extraño está pasando dentro del edificio.',['Intervenir','Evento importante y posible recompensa','Riesgo alto',.62,'event'],['No involucrarte','Seguís tu viaje','Perdés un gran evento',.95,'train']],
 ['Ciudad Azafrán','Gimnasio de Sabrina','El combate psíquico exige concentración.',['Confiar en tu mejor Pokémon','Gran crecimiento','Riesgo alto',.58,'gym'],['Cambiar la formación','Más seguridad','Menor prestigio',.73,'gym']],
-['Ruta 19','Camino marítimo','El viaje continúa entre corrientes y Pokémon acuáticos.',['Explorar el agua','Posible captura de Agua','Podés agotarte',.72,'cap'],['Avanzar directo','Llegás fresco a Canela','Sin captura',.91,'train']],
-['Islas Espuma','Un desvío helado','La cueva es fría y está llena de Pokémon distintos.',['Explorar las cavernas','Captura poco común','Fatiga probable',.58,'cap'],['Seguir hacia Canela','Menor riesgo','Perdés encuentros',.90,'train']],
+['Ruta 19','Camino marítimo','El viaje continúa entre corrientes y Pokémon acuáticos.',['Explorar el agua','Posible captura de Agua','Podés agotarte',.72,'cap'],['Avanzar directo','Llegás fresco a Canela y evitás desvíos','',1,'det','safeAdvance']],
+['Islas Espuma','Un desvío helado','La cueva es fría y está llena de Pokémon distintos.',['Explorar las cavernas','Captura poco común','Fatiga probable',.58,'cap'],['Seguir hacia Canela','Evitás el desvío y conservás energía','',1,'det','safeAdvance']],
 ['Isla Canela','Laboratorio Pokémon','Un científico se interesa por tu Pokédex.',['Aceptar su ayuda','Podés obtener un nuevo Pokémon','Resultado variable',.68,'cap'],['Investigar fósiles','Evento especial','Puede no servirte aún',.56,'rare']],
 ['Isla Canela','Mercado insular','El mercado recibe suministros para el tramo final de Kanto.',['Comprar Poké Balls','Podés reponer Poké, Super y Ultra Balls','',1,'det','shop'],['Seguir al gimnasio','Conservás el dinero para más adelante','',1,'det','keep']],
 ['Isla Canela','Gimnasio de Blaine','El calor del gimnasio lleva al equipo al límite.',['Responder con potencia','Medalla Volcán','Alta exigencia',.59,'gym'],['Administrar el combate','Mayor seguridad','Menos crecimiento',.75,'gym']],
-['Ruta 21','Regreso hacia el norte','El viaje te hace pasar cerca del inicio de tu aventura.',['Buscar una última captura','Última oportunidad de ampliar equipo','Podés gastar recursos',.74,'cap'],['Entrenar al equipo','Preparación para el final','No capturás',.88,'train']],
+['Ruta 21','Regreso hacia el norte','El viaje te hace pasar cerca del inicio de tu aventura.',['Buscar una última captura','Última oportunidad de ampliar equipo','Podés gastar recursos',.74,'cap'],['Entrenar al equipo','Llegás mejor preparado al tramo final','',1,'det','steadyTrain']],
 ['Ciudad Verde','Último gimnasio','El último líder bloquea el acceso completo a la Liga.',['Desafiarlo','Medalla Tierra','Derrota exigente',.62,'gym'],['Prepararte primero','Mayor seguridad','Menor prestigio',.78,'gym']],
 ['Ruta 22','Último duelo con tu rival','Antes de la Meseta Añil, tu rival vuelve a cruzarse.',['Aceptar el duelo','Te enfrentás a tu rival antes de la Liga','',1,'rival'],['Evitar el combate','Llegás descansado a Calle Victoria','',1,'det','avoid']],
-['Calle Victoria','Preparación final','Es la última zona antes de la Liga.',['Explorar y capturar','Última captura posible','Riesgo de fatiga',.66,'cap'],['Entrenar y descansar','Mejor preparación final','No capturás',.86,'train']],
+['Calle Victoria','Preparación final','Es la última zona antes de la Liga.',['Explorar y capturar','Última captura posible','Riesgo de fatiga',.66,'cap'],['Entrenar y descansar','El equipo llega preparado y sin forzar el ritmo','',1,'det','finalPrep']],
 ['Meseta Añil','Liga Pokémon','Tu viaje por Kanto llega a su prueba definitiva.',['Confiar en el equipo','Podés ser Campeón','Una derrota cierra la carrera',.55,'league'],['Apostar por estrategia','Más estabilidad','Menor techo de prestigio',.68,'league']]
 ];
 function insertStageBefore(place,event,stage){
@@ -1614,7 +1892,7 @@ insertStageBefore('Pueblo Lavanda','Una noche extraña',
 insertStageBefore('Ciudad Azulona','Centro Comercial',
  ['Ruta 7','Acceso a Azulona','Una zona corta de hierba separa la ciudad del camino.',['Explorar la hierba','Podrías encontrar una especie no vista antes','',.70,'cap'],['Entrar a la ciudad','No gastás recursos','',.94,'train']]);
 insertStageBefore('Ciudad Azulona','Gimnasio de Erika',
- ['Ciudad Azulona','Casino de premios','Una máquina de premios permite canjear fichas obtenidas durante la aventura.',['Canjear premio Dratini','Cuesta ₽7.500 y entrega un Dratini','',1,'det','casinoDratini'],['Guardar el dinero','Podés intentarlo en otro viaje','',1,'det','keep']]);
+ ['Ciudad Azulona','Casino de premios','Una máquina de premios permite canjear fichas obtenidas durante la aventura.',['Canjear premios del casino','Abrís el catálogo de premios disponibles en esta expedición','',1,'det','casinoShop'],['Guardar el dinero','Podés volver a mirar los premios en otro viaje','',1,'det','keep']]);
 insertStageBefore('Ciudad Fucsia','Zona Safari',
  ['Ruta 17','Camino de Bicis','Varias siluetas corren entre el pasto junto al camino.',['Buscar una captura','Las huellas pertenecen a criaturas muy veloces','',.72,'cap'],['Seguir pedaleando','Llegás antes a Fucsia','',.92,'train']]);
 insertStageBefore('Ciudad Fucsia','Gimnasio de Koga',
@@ -1823,6 +2101,7 @@ function directChoiceTone(o,st){
  if(o[5]==='keep'&&[st[3],st[4]].some(x=>tradeActions.includes(x[5])))return 'choice-reject';
  if(['dojoLee','dojoChan','aerodactylGift','pendingFossil','dexClue','rivalScout','rocketScout'].includes(o[5]))return 'choice-accept';
  if(o[5]==='rest')return 'choice-center';
+ if(['safeAdvance','steadyTrain','finalPrep'].includes(o[5]))return 'choice-accept';
  if(o[5]==='shop'||o[5]==='stoneShop')return 'choice-shop';
  return '';
 }
@@ -1873,7 +2152,93 @@ function pick(n){
  runProbabilisticPick(o,st,n);
 }
 
+
+const casinoPrizeSets={
+  first:[
+    {name:'Abra',price:500,lv:12},
+    {name:'Clefairy',price:750,lv:14},
+    {name:'Nidorino',price:1500,lv:18},
+    {name:'Pinsir',price:3500,lv:24},
+    {name:'Dratini',price:7500,lv:18},
+    {name:'Scyther',price:8500,lv:25}
+  ],
+  second:[
+    {name:'Drowzee',price:500,lv:14},
+    {name:'Vulpix',price:1000,lv:16},
+    {name:'Nidorina',price:1500,lv:18},
+    {name:'Wigglytuff',price:3000,lv:24},
+    {name:'Electabuzz',price:3500,lv:25},
+    {name:'Porygon',price:10000,lv:26}
+  ]
+};
+
+function currentCasinoPrizes(){
+  return S.journey<=1?casinoPrizeSets.first:casinoPrizeSets.second;
+}
+
+function casinoPrizeCard(p){
+  const owned=alreadyOwned(p.name);
+  const disabled=owned||S.money<p.price;
+  const status=owned?'YA LO TENÉS':(S.money<p.price?'DINERO INSUFICIENTE':`₽ ${p.price.toLocaleString('es-AR')}`);
+  return `<div class="opt det casino-prize ${disabled?'off':''}" ${disabled?'':`onclick="buyCasinoPrize('${p.name}',${p.price},${p.lv})"`}>
+    <div class="casino-prize-main">
+      ${spriteFor(p.name)?`<img src="${spriteFor(p.name)}" alt="">`:''}
+      <div><b>${p.name}</b><span>${status}</span></div>
+    </div>
+    <span class="det-note">${owned?'Ya forma parte de tu colección.':'Canjealo y se sumará a tu equipo o al PC si no hay lugar.'}</span>
+  </div>`;
+}
+
+function openCasinoShop(){
+  locked=false;
+  window.__casinoStage=stages[S.i];
+  const set=currentCasinoPrizes();
+  const label=S.journey<=1?'Primera expedición':'Segunda expedición';
+  openSidePanel('Premios del Casino',`
+    <p class="sub">${label}. El catálogo cambia entre expediciones.</p>
+    <div id="casinoNotice"></div>
+    <div class="shop-status"><span>Dinero disponible</span><b>₽ ${S.money.toLocaleString('es-AR')}</b></div>
+    <div class="casino-prize-grid">${set.map(casinoPrizeCard).join('')}</div>
+    <div class="opt det shop-exit shop-adventure-exit" onclick="finishCasinoVisit()"><b>← Volver a la aventura</b><span class="det-note">Conservás el dinero y los premios canjeados.</span></div>
+  `);
+}
+
+function buyCasinoPrize(name,price,lv){
+  const notice=document.getElementById('casinoNotice');
+  if(alreadyOwned(name)){
+    if(notice)notice.innerHTML=`<div class="result"><b>PREMIO YA OBTENIDO</b><br>${name} ya forma parte de tu colección.</div>`;
+    return;
+  }
+  if(S.money<price){
+    if(notice)notice.innerHTML=`<div class="result"><b>DINERO INSUFICIENTE</b><br>Necesitás ₽${price.toLocaleString('es-AR')}.</div>`;
+    return;
+  }
+  S.money-=price;
+  addCaptured({name,icon:'',lv,type:typeMap[name]||'Normal',role:'Premio del Casino de Azulona'},'Ciudad Azulona');
+  S.moments.push('Canjeó a '+name+' como premio del Casino de Azulona');
+  update();
+  openCasinoShop();
+  const newNotice=document.getElementById('casinoNotice');
+  if(newNotice)newNotice.innerHTML=`<div class="shop-status casino-success"><b>Premio canjeado</b><span>${name} se sumó a tu colección.</span></div>`;
+}
+
+function finishCasinoVisit(){
+  closeSidePanel();
+  const st=window.__casinoStage||stages[S.i];
+  registerSeenMany(seenForStage(st),st[0]);
+  S.history.push({place:st[0],event:st[1],ok:true,score:S.prestige});
+  S.i++;
+  update();
+  options.innerHTML='';
+  resolver.innerHTML=`<div class="result"><b>VISITA AL CASINO TERMINADA</b><br>Guardaste los premios canjeados y continuás tu viaje.<div class="result-actions"><button class="continue-btn" onclick="continueAfterResult(false)">Continuar</button></div></div>`;
+  locked=false;
+}
+
 function resolveDet(o,st){
+ if(o[5]==='casinoShop'){
+   openCasinoShop();
+   return;
+ }
  if(o[5]==='dojoLee'||o[5]==='dojoChan'){
    locked=false;
    startDojoMash(o[5]==='dojoLee'?'Hitmonlee':'Hitmonchan',st);
@@ -1990,6 +2355,15 @@ function resolveDet(o,st){
    }
  }else if(o[5]==='keep'){
    msg='Decidiste conservar tu equipo tal como está.';
+ }else if(o[5]==='safeAdvance'){
+   S.effects=S.effects.filter(e=>!['Fatiga','Agotado'].includes(e));
+   msg='Elegiste avanzar sin desvíos. Conservaste recursos y evitaste riesgos innecesarios.';
+ }else if(o[5]==='steadyTrain'){
+   S.effects=['Preparado'];
+   msg='Entrenaste con calma. El equipo quedó mejor preparado para el siguiente tramo.';
+ }else if(o[5]==='finalPrep'){
+   S.effects=['Preparado'];
+   msg='Priorizaste entrenamiento y descanso. El equipo llega preparado para la prueba final.';
  }else if(o[5]==='shop2'){
    S.money=Math.max(0,S.money-1200);S.balls.great+=3;
    msg='Compraste 3 Super Balls.';
@@ -2142,9 +2516,10 @@ function prestigeGainForStage(o,ok,st,tacticalGym=false){
 }
 
 function deterministicPrestigeGain(code,msg=''){
-  if(['keep','avoidRival','rest','shop','shop2','giovanniExit'].includes(code))return 0;
+  if(['keep','avoidRival','rest','shop','shop2','giovanniExit','safeAdvance'].includes(code))return 0;
   if(msg.startsWith('No tenías')||msg.startsWith('Necesitabas')||msg.startsWith('Ya tenés'))return 0;
   if(['dojoLee','dojoChan','aerodactylGift'].includes(code))return 2;
+  if(['steadyTrain','finalPrep'].includes(code))return 1;
   if(['pendingFossil','dexClue','rivalScout','rivalTalk','rocketScout','casinoDratini','info','swap'].includes(code))return 1;
   if(/^trade/.test(code||''))return 1;
   return 1;
@@ -3318,11 +3693,9 @@ function openObjectives(){
 function openDexFromMetric(){
   document.body.classList.add('dex-open');
   setMobileTab('dex');
-  if(window.innerWidth>900){
-    const panel=document.getElementById('mobilePanel');
-    if(panel&&!panel.querySelector('.desktop-dex-back')){
-      panel.insertAdjacentHTML('beforeend',`<button class="desktop-dex-back" onclick="closeDexFromMetric()">← Volver a la aventura</button>`);
-    }
+  const panel=document.getElementById('mobilePanel');
+  if(panel&&!panel.querySelector('.dex-close-x')){
+    panel.insertAdjacentHTML('afterbegin',`<button class="dex-close-x" type="button" aria-label="Cerrar Pokédex" title="Cerrar" onclick="closeDexFromMetric()">×</button>`);
   }
 }
 function closeDexFromMetric(){
