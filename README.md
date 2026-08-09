@@ -1,3 +1,3 @@
-# POKEGOAT — Kanto v0.20.9
+# POKEGOAT — Kanto v0.21.0
 
-Primer bloque narrativo: secuencias de diálogo dinámico para el Rival durante la primera expedición.
+Opciones narrativas bloqueadas durante diálogos y sprite especial de Poliwhirl para pesca en Ruta 4.
