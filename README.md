@@ -1,3 +1,3 @@
-# POKEGOAT — Kanto v0.20.7
+# POKEGOAT — Kanto v0.20.9
 
-Evolución visual coherente y resumen final responsive.
+Primer bloque narrativo: secuencias de diálogo dinámico para el Rival durante la primera expedición.
