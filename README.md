@@ -1,3 +1,3 @@
-# POKEGOAT — Kanto v0.20.2
+# POKEGOAT — Kanto v0.20.4
 
-Corrige la tienda de Poké Balls: el verde ahora marca el stock poseído arriba, no la tarjeta de compra.
+Sincroniza la versión visible del juego con el título de la pestaña del navegador.
