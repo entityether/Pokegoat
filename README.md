@@ -1,3 +1,3 @@
-# Pokegoat — Kanto Alpha v0.21.2
+# POKEGOAT — Kanto v0.22.0
 
-Build para GitHub Pages. Incluye Zona Safari jugable y actualización visual del Casino.
+Megaparche de la segunda expedición: continuidad geográfica, memoria de eventos, Rocket temprano en Celeste, Eevee en Azulona, aves legendarias espaciadas y foco legendario de escritorio.
