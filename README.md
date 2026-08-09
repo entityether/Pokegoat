@@ -1,3 +1,3 @@
-# POKEGOAT — Kanto v0.20.4
+# POKEGOAT — Kanto v0.20.6
 
-Sincroniza la versión visible del juego con el título de la pestaña del navegador.
+Corrige el rechazo de evoluciones por piedra: respeta cooldown/bloqueo y no consume la piedra.
