@@ -1,7 +1,6 @@
-# POKEGOAT — Kanto v0.22.4
+# POKEGOAT — Kanto v0.22.5
 
-- Focus Mode exclusivo de PC para pesca, Safari, tiendas, Casino y legendarios.
-- HUD/equipo/viaje se ocultan temporalmente cuando una actividad necesita espacio.
-- Sin scroll interno forzado en actividades especiales.
-- Separación visual fija entre texto y decisiones/resultados.
+- Separación más compacta entre narración y decisiones/resultados en PC.
+- Los resultados ya no se superponen con la caja narrativa.
+- Tras elegir una evolución, desaparece la caja inferior vacía.
 - La interfaz móvil permanece sin cambios.
