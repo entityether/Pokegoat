@@ -1,8 +1,8 @@
-# POKEGOAT — Kanto v0.22.2
+# POKEGOAT — Kanto v0.22.3
 
-- Nueva interfaz exclusiva de escritorio.
-- Entrenador/stats arriba izquierda.
-- Equipo 3×2 arriba derecha.
-- Evento + resultado + decisiones unidos abajo izquierda.
-- Tu viaje abajo derecha.
-- La interfaz móvil permanece sin cambios.
+- Hotfix exclusivo de escritorio.
+- Inicio y selección de starter ya no mezclan el HUD del juego.
+- Objetivos y Pokédex vuelven a ser ventanas emergentes en PC.
+- Tu viaje muestra 5 registros y luego usa scroll interno.
+- Evento/decisiones mantienen una altura estable.
+- Interfaz móvil sin cambios.
