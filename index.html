@@ -1,5 +1,5 @@
 <!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Pokegoat — Kanto Alpha v0.22.0</title>
+<title>Pokegoat — Kanto Alpha v0.22.2</title>
 <style>
 :root{--bg:#090a0d;--p:#11141b;--p2:#181c25;--line:#292e3a;--tx:#f7f7f8;--mut:#939aaa;--yel:#ffd23f;--g:#22c983;--r:#f04464}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:15px Inter,system-ui,Arial}button,input{font:inherit}.top{padding:18px 28px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between}.brand{font-size:22px;font-weight:950}.brand b{color:var(--yel)}.wrap{max-width:1180px;margin:auto;padding:28px}.card{background:var(--p);border:1px solid var(--line);border-radius:18px;padding:24px}.hidden{display:none!important}
@@ -1675,14 +1675,14 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
   letter-spacing:.02em;
 }
 
-/* v0.22.0 — Zona Safari especial */
+/* v0.22.2 — Zona Safari especial */
 .safari-mini{border:1px solid #2e6b50;background:linear-gradient(180deg,#0d241c,#101820);border-radius:14px;padding:14px}
 .safari-head{display:flex;justify-content:space-between;gap:10px;align-items:center;margin-bottom:10px}.safari-head b{color:#8ff0b9}.safari-stats{display:flex;gap:7px;flex-wrap:wrap}.safari-pill{border:1px solid #365b4a;background:#102b21;border-radius:999px;padding:4px 8px;font-size:11px;color:#d9ffe8}
 .safari-areas,.safari-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}.safari-area,.safari-card{border:1px solid #355043;background:#13231d;color:#fff;border-radius:11px;padding:10px;cursor:pointer;text-align:center}.safari-area:hover,.safari-card:hover{border-color:#6bcf99;background:#173629}.safari-area small{display:block;color:#9bc8af;margin-top:4px}
 .safari-grid{grid-template-columns:repeat(4,1fr)}.safari-card{min-height:112px;display:flex;flex-direction:column;justify-content:center;align-items:center}.safari-card img{width:72px;height:72px;object-fit:contain;image-rendering:auto}.safari-card.hidden-mon img{visibility:hidden}.safari-card.hidden-mon b{visibility:hidden}.safari-card.target{box-shadow:0 0 0 2px #e4c84c inset}.safari-msg{margin:10px 0;padding:9px;border-radius:9px;background:#0c1713;color:#d7e9df}.safari-catch{display:flex;align-items:center;gap:14px;padding:12px;border:1px solid #355043;border-radius:12px;background:#111d18}.safari-catch img{width:96px;height:96px;object-fit:contain}.safari-catch button{margin-left:auto;border:0;border-radius:999px;padding:10px 14px;font-weight:800;cursor:pointer}.safari-progress{height:8px;border-radius:999px;background:#26352e;overflow:hidden;margin:8px 0}.safari-progress>i{display:block;height:100%;background:#64c98e}
 @media(max-width:650px){.safari-areas{grid-template-columns:1fr}.safari-grid{grid-template-columns:repeat(2,1fr)}.safari-card{min-height:96px}.safari-card img{width:58px;height:58px}.safari-catch{align-items:center}.safari-catch img{width:76px;height:76px}}
 
-/* v0.22.0 — lectura Safari y acceso clásico */
+/* v0.22.2 — lectura Safari y acceso clásico */
 .safari-entry-yes{
   background:linear-gradient(145deg,#0c4d35,#0f6545)!important;
   border-color:#1b9b68!important;
@@ -1708,7 +1708,7 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
 }
 
 
-/* v0.22.0 — foco legendario en escritorio */
+/* v0.22.2 — foco legendario en escritorio */
 @media (min-width: 761px){
  body.legendary-focus #team,
  body.legendary-focus .team,
@@ -1717,8 +1717,258 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
  body.legendary-focus .legend-ball-panel{max-width:none}
 }
 
+</style><style>
+/* ============================================================
+   v0.22.2 — NUEVA INTERFAZ PC
+   IMPORTANTE: TODO está encapsulado en min-width:901px.
+   La interfaz móvil conserva su diseño anterior sin cambios.
+   ============================================================ */
+@media (min-width:901px){
+
+  header.top,
+  main.wrap{
+    width:min(1120px,calc(100vw - 64px))!important;
+    max-width:1120px!important;
+    margin-left:auto!important;
+    margin-right:auto!important;
+  }
+
+  main.wrap{
+    padding:22px 0 34px!important;
+  }
+
+  #game.game{
+    position:relative!important;
+    display:grid!important;
+    grid-template-columns:repeat(12,minmax(0,1fr))!important;
+    grid-template-rows:auto auto auto auto auto!important;
+    column-gap:14px!important;
+    row-gap:0!important;
+    align-items:stretch!important;
+    zoom:1!important;
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+
+  #game>.card:first-child{
+    display:contents!important;
+  }
+
+  /* Entrenador y recursos — arriba izquierda */
+  #game>.card:first-child .head{
+    grid-column:1/6!important;
+    grid-row:1!important;
+    align-self:stretch!important;
+    padding:16px!important;
+    margin:0!important;
+    border:1px solid var(--line)!important;
+    border-bottom:0!important;
+    border-radius:16px 16px 0 0!important;
+    background:var(--p)!important;
+    min-height:104px!important;
+  }
+
+  #game>.card:first-child .hud-stats{
+    grid-column:1/6!important;
+    grid-row:2!important;
+    margin:0!important;
+    padding:0 16px 16px!important;
+    border:1px solid var(--line)!important;
+    border-top:0!important;
+    border-radius:0 0 16px 16px!important;
+    background:var(--p)!important;
+    align-self:stretch!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-auto-rows:58px!important;
+    gap:7px!important;
+  }
+
+  /* Equipo de seis — arriba derecha, 3 × 2 */
+  #game>.card:first-child #team{
+    grid-column:6/13!important;
+    grid-row:1/3!important;
+    display:grid!important;
+    grid-template-columns:repeat(3,minmax(0,1fr))!important;
+    grid-template-rows:repeat(2,minmax(110px,1fr))!important;
+    gap:10px!important;
+    margin:0!important;
+    padding:16px!important;
+    min-height:263px!important;
+    border:1px solid var(--line)!important;
+    border-radius:16px!important;
+    background:var(--p)!important;
+    align-self:stretch!important;
+  }
+
+  #game>.card:first-child #team .mon{
+    min-width:0!important;
+    min-height:110px!important;
+    padding:12px 10px!important;
+    border-radius:13px!important;
+    display:flex!important;
+    flex-direction:column!important;
+    align-items:center!important;
+    justify-content:center!important;
+    gap:4px!important;
+    background:#0d1016!important;
+  }
+
+  #game>.card:first-child #team .mon-sprite{
+    width:42px!important;
+    height:42px!important;
+  }
+
+  #game>.card:first-child #team .mon b{
+    font-size:12px!important;
+  }
+
+  #game>.card:first-child #team .type-chip{
+    font-size:9px!important;
+    padding:2px 6px!important;
+  }
+
+  /* Elementos que no deben deformar la composición de escritorio */
+  #game>.card:first-child #reserveLine,
+  #game>.card:first-child #stateBlock{
+    display:none!important;
+  }
+
+  /* Evento + resultado + decisiones — abajo izquierda, una sola unidad */
+  #game>.card:first-child #eventCard{
+    grid-column:1/8!important;
+    grid-row:3!important;
+    margin:14px 0 0!important;
+    min-height:118px!important;
+    padding:16px 17px!important;
+    border-radius:16px 16px 0 0!important;
+    border-bottom:0!important;
+    background:#11161e;
+  }
+
+  #game>.card:first-child #eventTitle{
+    font-size:20px!important;
+    line-height:1.12!important;
+    margin:4px 0 6px!important;
+  }
+
+  #game>.card:first-child #eventText{
+    font-size:11px!important;
+    line-height:1.45!important;
+    margin-bottom:0!important;
+  }
+
+  #game>.card:first-child #resolver{
+    grid-column:1/8!important;
+    grid-row:4!important;
+    width:100%!important;
+    margin:0!important;
+    padding:0 12px!important;
+    background:#11161e!important;
+    border-left:1px solid var(--line)!important;
+    border-right:1px solid var(--line)!important;
+  }
+
+  #game>.card:first-child #resolver:not(:empty){
+    padding-top:10px!important;
+    padding-bottom:2px!important;
+  }
+
+  #game>.card:first-child #resolver .result{
+    margin:0!important;
+    border-radius:12px!important;
+  }
+
+  #game>.card:first-child #options{
+    grid-column:1/8!important;
+    grid-row:5!important;
+    width:100%!important;
+    margin:0!important;
+    padding:10px 12px 12px!important;
+    background:#11161e!important;
+    border:1px solid var(--line)!important;
+    border-top:0!important;
+    border-radius:0 0 16px 16px!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+    gap:10px!important;
+    align-self:stretch!important;
+  }
+
+  #game>.card:first-child #options:empty{
+    min-height:12px!important;
+  }
+
+  #game>.card:first-child #options .opt{
+    margin:0!important;
+    min-height:108px!important;
+  }
+
+  #game>.card:first-child #options .opt:only-child{
+    grid-column:1/-1!important;
+  }
+
+  /* Tu viaje — abajo derecha */
+  #timelineCard{
+    grid-column:8/13!important;
+    grid-row:3/6!important;
+    margin:14px 0 0!important;
+    width:100%!important;
+    min-width:0!important;
+    min-height:100%!important;
+    height:auto!important;
+    max-height:none!important;
+    overflow:auto!important;
+    align-self:stretch!important;
+    border-radius:16px!important;
+    padding:16px!important;
+    background:var(--p)!important;
+  }
+
+  #timelineCard h2{
+    font-size:20px!important;
+    margin-bottom:9px!important;
+  }
+
+  #timelineCard .row{
+    min-height:44px!important;
+    padding:7px 9px!important;
+  }
+
+  #timelineCard .row b{font-size:11px!important}
+  #timelineCard .row small{font-size:9.5px!important}
+
+  /* Modos especiales conservan su propio protagonismo */
+  #game>.card:first-child.shop-open,
+  #game>.card:first-child.minigame-active{
+    display:block!important;
+    grid-column:1/8!important;
+    grid-row:1/6!important;
+    padding:18px!important;
+    background:var(--p)!important;
+    border:1px solid var(--line)!important;
+    border-radius:18px!important;
+  }
+
+  #game[data-mobile-tab="dex"]>.card:first-child{
+    display:block!important;
+    background:var(--p)!important;
+    border:1px solid var(--line)!important;
+    border-radius:18px!important;
+  }
+
+  .side-panel,
+  .shop-panel,
+  .casino-panel,
+  .fishing-mini,
+  .safari-mini,
+  .legend-ball-panel{
+    width:100%!important;
+    max-width:none!important;
+  }
+}
 </style></head><body>
-<header class="top"><div class="brand">POKE<b>GOAT</b></div><div class="sub"><button id="patchBtn" class="patch-btn" type="button" onclick="openPatchNotes()">v0.22.0</button></div></header><main class="wrap">
+<header class="top"><div class="brand">POKE<b>GOAT</b></div><div class="sub"><button id="patchBtn" class="patch-btn" type="button" onclick="openPatchNotes()">v0.22.2</button></div></header><main class="wrap">
 <section id="start" class="hero"><div class="intro"><div class="tag">KANTO</div><h1>Tu viaje empieza en Pueblo Paleta.</h1><p>Elegí un compañero y construí una carrera rápida por Kanto. Capturas, evoluciones, rival, gimnasios y Liga cambian según tus decisiones.</p><button class="primary" onclick="show('setup')">Comenzar aventura</button></div></section>
 <section id="setup" class="card hidden"><h2>Nuevo entrenador</h2><div class="setup"><div><div class="field"><label>NOMBRE</label><input id="name" value="Entrenador"></div><div class="field"><label>RIVAL</label><input id="rival" value="Rival"></div><p>Región: <b>Kanto</b><br>Objetivo principal: conseguir medallas y llegar a la Liga.</p></div><div><h3>Elegí tu inicial</h3><div class="starters">
 <div class="starter on" data-id="Bulbasaur" data-icon="🌱"><div class="poke"><img src="data:image/png;base64,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" style="width:48px;height:48px"></div><b>Bulbasaur</b><small>Planta / Veneno</small></div>
@@ -1817,10 +2067,16 @@ button.hud-card:active{transform:translateY(1px) scale(.985)}
     <button class="patch-close" type="button" aria-label="Cerrar novedades" onclick="closePatchNotes()">×</button>
     <div class="patch-kicker">HISTORIAL DE VERSIONES</div>
     <h2 id="patchTitle">Pokegoat — Kanto Alpha</h2>
-    <p class="patch-current">Versión actual <b>v0.22.0</b> · 9 de agosto de 2026</p><div class="patch-entry"><div class="patch-entry-head"><b>v0.22.0</b><span>9 ago 2026</span></div><h3>Megaparche · Reencuentro con Kanto</h3><p>La segunda expedición ahora sigue un trayecto geográfico continuo y transforma eventos ya resueltos. Ruta 11 deja atrás el Pokémon herido; Lavanda muestra una Torre en calma; Azulona reemplaza la revancha Rocket por un regalo de Eevee; Ruta 12 evita repetir la misma pesca. El duelo demasiado cercano del Rival en Celeste se sustituye por una aparición temprana del Team Rocket. Zapdos, Articuno y Moltres quedan separados en tres grandes tramos. Celeste y el cierre de Meseta Añil recuperan jerarquía verde/roja. Los encuentros legendarios activan un foco compacto en PC para evitar que la interfaz se alargue cuando faltan Ultra/Master Balls.</p></div>
-      <div class="patch-entry"><div class="patch-entry-head"><b>v0.22.0</b><span>9 ago 2026</span></div><h3>Safari más claro y Rival consciente de la Liga</h3><p>La entrada de Zona Safari vuelve al lenguaje clásico verde/rojo. El Pokémon objetivo queda identificado como el único capturable de cada ronda; capturas exitosas se muestran en verde y fugas o rastreos fallidos en rojo. En Ruta 22, el Rival comprueba las medallas reales del entrenador antes de hablar de la Liga y adapta sus líneas si todavía no tiene 8/8.</p></div>
+    <p class="patch-current">Versión actual <b>v0.22.2</b> · 10 de agosto de 2026</p>
+<div class="patch-entry">
+  <div class="patch-entry-head"><b>v0.22.2</b><span>10 ago 2026</span></div>
+  <h3>Nueva interfaz de escritorio</h3>
+  <p>La versión PC adopta un tablero más ancho inspirado en la pantalla de selección inicial: entrenador y estadísticas arriba a la izquierda, equipo completo de seis Pokémon arriba a la derecha en una grilla 3×2, evento/resultado/decisiones unidos abajo a la izquierda y “Tu viaje” ocupando la columna inferior derecha. Todos estos cambios están limitados a escritorio; la interfaz móvil conserva su diseño anterior sin modificaciones.</p>
+</div>
+<div class="patch-entry"><div class="patch-entry-head"><b>v0.22.2</b><span>10 ago 2026</span></div><h3>Segunda Liga desbloqueada + Giovanni corregido</h3><p>Al completar 8/8 medallas durante la segunda expedición, “Fin del reencuentro” se transforma automáticamente en una nueva oportunidad de desafiar al Alto Mando, con dos estrategias de combate. También se corrigió el gimnasio de Tierra de Ciudad Verde para que Giovanni use el mismo cuadro temático especial que el resto de líderes.</p></div><div class="patch-entry"><div class="patch-entry-head"><b>v0.22.2</b><span>9 ago 2026</span></div><h3>Megaparche · Reencuentro con Kanto</h3><p>La segunda expedición ahora sigue un trayecto geográfico continuo y transforma eventos ya resueltos. Ruta 11 deja atrás el Pokémon herido; Lavanda muestra una Torre en calma; Azulona reemplaza la revancha Rocket por un regalo de Eevee; Ruta 12 evita repetir la misma pesca. El duelo demasiado cercano del Rival en Celeste se sustituye por una aparición temprana del Team Rocket. Zapdos, Articuno y Moltres quedan separados en tres grandes tramos. Celeste y el cierre de Meseta Añil recuperan jerarquía verde/roja. Los encuentros legendarios activan un foco compacto en PC para evitar que la interfaz se alargue cuando faltan Ultra/Master Balls.</p></div>
+      <div class="patch-entry"><div class="patch-entry-head"><b>v0.22.2</b><span>9 ago 2026</span></div><h3>Safari más claro y Rival consciente de la Liga</h3><p>La entrada de Zona Safari vuelve al lenguaje clásico verde/rojo. El Pokémon objetivo queda identificado como el único capturable de cada ronda; capturas exitosas se muestran en verde y fugas o rastreos fallidos en rojo. En Ruta 22, el Rival comprueba las medallas reales del entrenador antes de hablar de la Liga y adapta sus líneas si todavía no tiene 8/8.</p></div>
 
-      <div class="patch-entry"><div class="patch-entry-head"><b>v0.22.0</b><span>9 ago 2026</span></div><h3>Zona Safari jugable</h3><p>La Zona Safari pasa a ser una microexpedición de tres encuentros con 500 pasos, Safari Balls, elección de sectores, memoria/rastreo y captura. Se integraron sprites especiales para Kangaskhan, Rhyhorn, Tauros, Chansey, Scyther, Pinsir, Slowpoke, Dratini y Psyduck. También se unificó el estilo violeta del texto del acceso al Casino con sus tarjetas de premios.</p></div>
+      <div class="patch-entry"><div class="patch-entry-head"><b>v0.22.2</b><span>9 ago 2026</span></div><h3>Zona Safari jugable</h3><p>La Zona Safari pasa a ser una microexpedición de tres encuentros con 500 pasos, Safari Balls, elección de sectores, memoria/rastreo y captura. Se integraron sprites especiales para Kangaskhan, Rhyhorn, Tauros, Chansey, Scyther, Pinsir, Slowpoke, Dratini y Psyduck. También se unificó el estilo violeta del texto del acceso al Casino con sus tarjetas de premios.</p></div>
 
 
     <div class="patch-list">
@@ -2363,7 +2619,7 @@ function pokedexTrailText(){
  return 'El registro sugiere explorar hábitats distintos: todavía quedan criaturas que nunca viste.';
 }
 function buildExplorationStages(direction){
- // v0.22.0: la segunda expedición usa un itinerario geográfico propio.
+ // v0.22.2: la segunda expedición usa un itinerario geográfico propio.
  // Los eventos ya resueltos no se reciclan como si Kanto hubiese olvidado el primer viaje.
  const byPlace={};
  firstJourneyStages.forEach(s=>(byPlace[s[0]]??=[]).push(s));
@@ -3701,6 +3957,10 @@ const trainerEventClasses=[
 ];
 function trainerVisualClass(stage){
  const text=((stage?.[0]||'')+' '+(stage?.[1]||'')+' '+(stage?.[2]||'')).toLowerCase();
+ const placeName=(stage?.[0]||'').toLowerCase();
+ const eventName=(stage?.[1]||'').toLowerCase();
+ // Ciudad Verde es el gimnasio de Giovanni aunque el texto original no nombre al líder.
+ if(placeName==='ciudad verde'&&(eventName.includes('último gimnasio')||eventName.includes('ultimo gimnasio')||eventName.includes('la última sombra')||eventName.includes('la ultima sombra')))return 'trainer-giovanni';
  if(text.includes('brock'))return 'trainer-brock';
  if(text.includes('misty'))return 'trainer-misty';
  if(text.includes('lt. surge')||text.includes('surge'))return 'trainer-surge';
@@ -4081,6 +4341,18 @@ function maybePlayRivalNarrative(s){
 }
 
 
+
+function applySecondLeagueUnlock(stage){
+ if(!stage || S.journey<=1 || S.badges<8)return stage;
+ if(stage[0]==='Meseta Añil' && stage[1]==='Fin del reencuentro'){
+   stage[1]='La Liga vuelve a abrir sus puertas';
+   stage[2]='Completaste las ocho medallas durante el reencuentro. El Alto Mando reconoce que volviste a cumplir los requisitos y exige una nueva prueba.';
+   stage[3]=['Desafiar al Alto Mando','Competís nuevamente por el título','Una derrota cierra esta expedición',.60,'league'];
+   stage[4]=['Apostar por estrategia','Mayor seguridad para una segunda conquista','Menor techo de prestigio',.69,'league'];
+ }
+ return stage;
+}
+
 function renderEvent(){
  setMinigameFocus(false);
  if(!S.explorationMode&&S.i===stages.length-1){
@@ -4088,6 +4360,7 @@ function renderEvent(){
    if(!access.ok){renderLeagueDenied();return;}
  }
  let s=stages[S.i];
+ s=applySecondLeagueUnlock(s);
  setLegendaryEventVisual(isLegendaryStage(s));
  setTrainerEventVisual(s);
  place.textContent=s[0].toUpperCase();

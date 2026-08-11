@@ -1,3 +1,8 @@
-# POKEGOAT — Kanto v0.22.0
+# POKEGOAT — Kanto v0.22.2
 
-Megaparche de la segunda expedición: continuidad geográfica, memoria de eventos, Rocket temprano en Celeste, Eevee en Azulona, aves legendarias espaciadas y foco legendario de escritorio.
+- Nueva interfaz exclusiva de escritorio.
+- Entrenador/stats arriba izquierda.
+- Equipo 3×2 arriba derecha.
+- Evento + resultado + decisiones unidos abajo izquierda.
+- Tu viaje abajo derecha.
+- La interfaz móvil permanece sin cambios.
