@@ -1,8 +1,7 @@
-# POKEGOAT — Kanto v0.22.3
+# POKEGOAT — Kanto v0.22.4
 
-- Hotfix exclusivo de escritorio.
-- Inicio y selección de starter ya no mezclan el HUD del juego.
-- Objetivos y Pokédex vuelven a ser ventanas emergentes en PC.
-- Tu viaje muestra 5 registros y luego usa scroll interno.
-- Evento/decisiones mantienen una altura estable.
-- Interfaz móvil sin cambios.
+- Focus Mode exclusivo de PC para pesca, Safari, tiendas, Casino y legendarios.
+- HUD/equipo/viaje se ocultan temporalmente cuando una actividad necesita espacio.
+- Sin scroll interno forzado en actividades especiales.
+- Separación visual fija entre texto y decisiones/resultados.
+- La interfaz móvil permanece sin cambios.
