@@ -1,8 +1,6 @@
-# POKEGOAT — Kanto v0.22.9
+# POKEGOAT — Kanto v0.22.10
 
-- Nuevo logo oficial integrado.
-- Splash breve al iniciar (se puede saltar con clic).
-- Logo grande en la portada inicial.
-- Logo compacto en el encabezado.
-- Imagen optimizada y embebida dentro de index.html.
-- Sin cambios de layout móvil ni mecánicas.
+- Splash de apertura eliminado.
+- Se conserva el logo grande de portada.
+- Se conserva el logo compacto del encabezado.
+- Inicio directo al juego.
