@@ -1,8 +1,8 @@
-# POKEGOAT — Kanto v0.22.8
+# POKEGOAT — Kanto v0.22.9
 
-- Corregida la causa real de las cajas pegadas en PC.
-- Separador físico de 12 px entre narración y decisiones/resultados.
-- Separación de 14 px entre HUD superior y evento.
-- Decisiones y resultados permanecen en la misma posición.
-- Evolución mantiene el cierre limpio sin caja inferior vacía.
-- Interfaz móvil sin cambios.
+- Nuevo logo oficial integrado.
+- Splash breve al iniciar (se puede saltar con clic).
+- Logo grande en la portada inicial.
+- Logo compacto en el encabezado.
+- Imagen optimizada y embebida dentro de index.html.
+- Sin cambios de layout móvil ni mecánicas.
