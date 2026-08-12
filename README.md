@@ -1,6 +1,6 @@
-# POKEGOAT — Kanto v0.22.10
+# POKEGOAT — Kanto v0.22.12
 
-- Splash de apertura eliminado.
-- Se conserva el logo grande de portada.
-- Se conserva el logo compacto del encabezado.
-- Inicio directo al juego.
+- Transparencia del logo rehecha desde el original.
+- Blancos/silver de GOAT conservan opacidad completa.
+- Se elimina sólo el fondo claro conectado al borde.
+- Sin filtros CSS sobre el logo.
